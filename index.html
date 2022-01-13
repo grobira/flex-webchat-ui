@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://assets.flex.twilio.com/releases/flex-webchat-ui/2.9.1/twilio-flex-webchat.min.js" integrity="sha512-yBmOHVWuWT6HOjfgPYkFe70bboby/BTj9TGHXTlEatWnYkW5fFezXqW9ZgNtuRUqHWrzNXVsqu6cKm3Y04kHMA==" crossorigin></script>
+</head>
+
+
+<body>
+    <script>
+        const appConfig = {
+            accountSid:"ACXXXXXXXXXXXXXXXXXXXXXXXXX",
+            flexFlowSid:"FOXXXXXXXXXXXXXXXXXXXXXXXX",
+            context: {
+                friendlyName: "Anonymous"
+            },
+            startEngagementOnInit : false,
+            preEngagementConfig : {
+                description: "Please provide some information",
+                fields: [
+                    {
+                        label: "What is your name?",
+                        type: "InputItem",
+                        attributes: {
+                            name: "friendlyName",
+                            type: "text",
+                            required: true
+                        }
+                    },
+                    {
+                        label: "What is your question?",
+                        type: "TextareaItem",
+                        attributes: {
+                            name: "question",
+                            type: "text",
+                            placeholder: "Type your question here",
+                            required: false,
+                            rows: 5
+                        }
+                    },
+                ],
+                submitLabel: "Ok Let's Go!"
+            }
+        };
+
+        Twilio.FlexWebChat.createWebChat(appConfig).then(webchat => {
+            const { manager } = webchat;
+            console.log(webchat)
+
+        //Posting question from preengagement form as users first chat message
+        Twilio.FlexWebChat.Actions.on("afterStartEngagement", (payload) => {
+              const { question } = payload.formData;
+              if (!question) return;
+
+              const { channelSid } = manager.store.getState().flex.session;
+              manager.chatClient.getChannelBySid(channelSid)
+                  .then(channel => {
+                      channel.sendMessage(question);
+                  });
+          });
+        // Changing the Welcome message
+            manager.strings.WelcomeMessage = "New text for welcome message";
+
+        // Render WebChat
+            webchat.init();
+        });
+    </script>
+</body>
