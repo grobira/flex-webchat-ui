@@ -1,0 +1,44 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@twilio/flex-ui": "^1.29.2",
+    "@twilio/flex-webchat-ui": "^2.0.0",
+    "array-findindex-polyfill": "^0.1.0",
+    "ie-array-find-polyfill": "^1.1.0",
+    "react": "^16.5.2",
+    "react-app-polyfill": "^1.0.1",
+    "react-dom": "^16.5.2",
+    "react-redux": "^7.2.6",
+    "react-scripts": "3.4.1",
+    "redux": "^3.7.2"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.1.11"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

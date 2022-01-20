@@ -1,0 +1,4 @@
+var appConfig = {
+    accountSid: "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    flexFlowSid: "FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+}
