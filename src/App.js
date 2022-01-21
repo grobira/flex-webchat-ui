@@ -1,23 +1,22 @@
 
 import React from 'react';
 import * as FlexWebChat from "@twilio/flex-webchat-ui";
-import { Icon } from '@twilio/flex-ui';
 
 const CallbackButton = (props) => {
   return (
-    <button className="button" ><Icon icon="CallBold" /></button>
+    <button className="button" >Callback</button>
   );
 }
 
 const SmsButton = (props) => {
   return (
-    <button className="button" ><Icon icon="MessageBold" /></button>
+    <button className="button" >SMS</button>
   );
 }
 
 const ChatButton = (props) => {
   return (
-    <button className="button" ><Icon icon="SendLarge" /></button>
+    <button className="button" >Webchat</button>
   );
 }
 
