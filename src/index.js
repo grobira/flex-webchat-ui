@@ -9,8 +9,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const appConfig = {
-  accountSid: "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  flexFlowSid: "FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  accountSid: "ACXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  flexFlowSid: "FOXXXXXXXXXXXXXXXXXXXXXXXXXX",
 }
 
 ReactDOM.render(
